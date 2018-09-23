@@ -36,8 +36,8 @@ var heroes = [axe, razor, wraithking, invoker]
 var userhero = ""
 var enemyheroes = []
 var firstexecute = false
-var firstexecute1 = false
-var currentlyattacking = ""
+var firstexecuteone = false
+var currenttarget = ""
 
 $(".clicker").on("click", function(){
   if (firstexecute == false){
@@ -62,17 +62,30 @@ $(".clicker").on("click", function(){
     else{
       console.log("already run")
     }
+    $(".enemy").on("click",function(){
+      console.log(firstexecuteone)
+      if (firstexecuteone == false){
+        firstexecuteone = true
+        var current = $(this).attr("hero")
+        for (i in enemyheroes){
+          if (current == (enemyheroes[i]).name){
+          currenttarget = enemyheroes[i]
+
+        }
+      }
+
+      }
+      else {
+
+      }
+      console.log(currenttarget)
+    })
+
 })
-$(".enemy").on("click",function(){
-  if (firstexecute1 == false){
-    firstexecute1 = true
-    var current = $(this).attr("hero")
-    for (i in enemyheroes){
-      if (attribute == (enemyheroes[i]).name){
-      currentlyattacking = enemyheroes[i]
-    console.log(currentlyattacking.order)
-    }
-  }
-}
-})
+// $('.current').on('shown.bs.tab', 'a[data-toggle="tab"]', function (e) {
+//     $('#List.nav-link li.active').removeClass("active");
+//     GetTarget(e);
+//     $(this).addClass('active');
+//     $(this).removeClass("not-active");
+// });
 })
