@@ -70,6 +70,10 @@ $(".clicker").on("click", function(){
         for (i in enemyheroes){
           if (current == (enemyheroes[i]).name){
           currenttarget = enemyheroes[i]
+          $("div"+(enemyheroes[i]).order).prependTo(".current")
+          $("div"+(enemyheroes[i]).order).addClass("currentenemy")
+
+
 
         }
       }
