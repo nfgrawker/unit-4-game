@@ -1,0 +1,38 @@
+body{
+  color: white;
+  background-image: url(../images/dota2background.jpg);
+}
+.header{
+  width: 100%;
+  border-bottom: 5px solid red;
+  /* background-color: grey; */
+}
+.box{
+    height: 230px;
+    width: 100%;
+    border-bottom: 5px solid  red;
+    /* background-color: grey; */
+  }
+.image{
+    height: 113px;
+    width: 200px;
+  }
+.center{
+  text-align: center;
+}
+.characterbox{
+  height: 220px;
+  width: 250px;
+  border: 2px solid red;
+}
+.floatleft{
+  float: left;
+}
+.title{
+  /* background-color: grey; */
+  width: 100%;
+  border-bottom: 5px groove red;
+}
+.attacksection{
+  border-bottom: 5px solid red;
+}
