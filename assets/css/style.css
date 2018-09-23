@@ -11,6 +11,7 @@ body{
     height: 230px;
     width: 100%;
     border-bottom: 5px solid  red;
+    margin-top: 6px;
     /* background-color: grey; */
   }
 .image{
@@ -24,6 +25,7 @@ body{
   height: 220px;
   width: 250px;
   border: 2px solid red;
+  margin: 0px 10px 0px 10px;
 }
 .floatleft{
   float: left;
