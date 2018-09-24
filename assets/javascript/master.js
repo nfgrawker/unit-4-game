@@ -43,6 +43,7 @@ var myhp = 0
 var currentenemyhp = 0
 var myattack = 0
 var currentenemyattack = 0
+var attack = true
 
 for (i in heroes){
   $("p"+heroes[i].order).text(heroes[i].hitpoints)
@@ -94,6 +95,7 @@ $(".clicker").on("click", function(){
 
   })
   $(".attackbutton").on("click",function(){
+    if (attack == true){
     myhp -= currentenemyattack
     currentenemyhp -= myattack
     myattack += 30
@@ -107,8 +109,18 @@ $(".clicker").on("click", function(){
       defeatedenemies.push(currenttarget)
     }
     if (myhp <= 0){
-
+      var loser = document.createElement("div")
+      loser.addClass("loser")
+      loser.textContent("<h1>You have lost!!!!</h1>")
+      attack = false
+      console.log("loser")
     }
-
+    else{
+      return 0
+    }
+  }
+  else {
+    return 0
+  }
   })
 })

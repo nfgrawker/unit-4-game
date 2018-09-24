@@ -38,3 +38,8 @@ body{
 .attacksection{
   border-bottom: 5px solid red;
 }
+.loss{
+  position: fixed;
+  font-size: 50px;
+  color: 50px;
+}
