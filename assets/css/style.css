@@ -1,42 +1,53 @@
 body{
   color: white;
   background-image: url(../images/dota2background.jpg);
+   text-shadow: 1px 5px 0 black;
 }
 .header{
   width: 100%;
-  border-bottom: 5px solid red;
+  border-bottom: 5px solid #b71c1c7d;
   /* background-color: grey; */
 }
 .box{
-    height: 230px;
-    width: 100%;
-    border-bottom: 5px solid  red;
-    margin-top: 6px;
+    height: 150px;
+    width: 70%;
+    border-bottom: 5px solid  #b71c1c7d;
+    border-right: 5px solid #b71c1c7d;
+    padding-top: top: 6px;
+    background-color: #3814144d;
+    float: left;
     /* background-color: grey; */
   }
 .image{
-    height: 113px;
-    width: 200px;
+    height: 85px;
+    width: 150px;
   }
 .center{
   text-align: center;
 }
 .characterbox{
-  height: 220px;
-  width: 250px;
-  border: 2px solid red;
-  margin: 0px 10px 0px 10px;
+  height: 140px;
+  width: 160px;
+  border: 2px solid #b71c1c7d;
+  margin: 3px 10px 0px 10px;
 }
 .floatleft{
   float: left;
 }
 .title{
   /* background-color: grey; */
-  width: 100%;
-  border-bottom: 5px groove red;
+  width: 70%;
+  border-bottom: 5px groove #b71c1c7d;
+  border-right: 5px solid #b71c1c7d;
+  padding-top: 10px;
+  float: left;
 }
 .attacksection{
-  border-bottom: 5px solid red;
+  width: 70%;
+  border-bottom: 5px solid #b71c1c7d;
+  padding-top: 10px;
+  border-right: 5px solid #b71c1c7d;
+  float: left;
 }
 .loser{
   top: 40%;
@@ -44,7 +55,7 @@ body{
   position: fixed;
   left: 25%;
   font-size: 150px;
-  color: red;
+  color: #b71c1c7d;
   animation: blinker 1s linear infinite;
 
 }
@@ -61,4 +72,31 @@ animation: blinker 1s linear infinite;
 50% {
   opacity: 0;
 }
+}
+.hp{
+  margin: auto;
+}
+h2.title{
+  width: 100%;
+  float: left;
+}
+h3{
+  margin: 5px 0px 0px 0px;
+}
+h2{
+  margin:0 0 0 0;
+}
+.textcard{
+  width: 29%;
+  float: right;
+  background-color: #3814144d;
+  height: 700px;
+}
+h2.floatright{
+float: right;
+margin-right: 35%;
+}
+.smalltitleright{
+  float:right;
+  width: 29%;
 }

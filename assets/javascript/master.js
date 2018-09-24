@@ -5,7 +5,9 @@ var axe = {
   attackpower:60,
   counter:35,
   order: ".one",
-  image: "./assets/images/axebackground.jpg"
+  image: "./assets/images/axebackground.jpg",
+  deathsound : new Audio("./assets/sounds/axedeath.mp3"),
+  picksound : new Audio("./assets/sounds/axepick.mp3")
 }
 var razor = {
   name:"Razor",
@@ -13,7 +15,9 @@ var razor = {
   attackpower:70,
   counter:99,
   order:".two",
-  image: "./assets/images/razorbackground.jpg"
+  image: "./assets/images/razorbackground.jpg",
+  deathsound : new Audio("./assets/sounds/razordeath.mp3"),
+  picksound : new Audio("./assets/sounds/razorpick.mp3")
 }
 var wraithking = {
   name:"Wraith King",
@@ -21,7 +25,9 @@ var wraithking = {
   attackpower:55,
   counter:35,
   order:".three",
-  image: "./assets/images/wraithkingbackground.jpg"
+  image: "./assets/images/wraithkingbackground.jpg",
+  deathsound : new Audio("./assets/sounds/wraithkingdeath.mp3"),
+  picksound : new Audio("./assets/sounds/wraithkingpick.mp3")
 }
 var invoker = {
   name:"Invoker",
@@ -29,7 +35,9 @@ var invoker = {
   attackpower:70,
   counter:80,
   order:".four",
-  image: "./assets/images/invokerbackground.jpg"
+  image: "./assets/images/invokerbackground.jpg",
+  deathsound : new Audio("./assets/sounds/invokerdeath.mp3"),
+  picksound : new Audio("./assets/sounds/invokerpick.mp3")
 }
 
 var heroes = [axe, razor, wraithking, invoker]
@@ -44,6 +52,7 @@ var currentenemyhp = 0
 var myattack = 0
 var currentenemyattack = 0
 var attack = true
+var attackroundincrease = 0
 
 for (i in heroes){
   $("p"+heroes[i].order).text(heroes[i].hitpoints)
@@ -56,6 +65,7 @@ $(".clicker").on("click", function(){
     for (i in heroes){
       if (attribute == (heroes[i]).name){
         userhero = heroes[i]
+        userhero.picksound.play()
         myhp = userhero.hitpoints
         myattack = userhero.attackpower
         $("body").css("background-image", "url("+userhero.image+")");
@@ -97,8 +107,12 @@ $(".clicker").on("click", function(){
   $(".attackbutton").on("click",function(){
     if (attack == true && currenttarget != ""){
     myhp -= currentenemyattack
+    $(".textcard").prepend("<p>You have been attacked for "+currentenemyattack+"!</p>")
     currentenemyhp -= myattack
-    myattack += 40
+    $(".textcard").prepend("<p>You have attacked "+currenttarget.name+" for "+myattack+"!</p>")
+    attackroundincrease = (Math.round(Math.random()*60))
+    $(".textcard").prepend("<p>Your attack increases by "+attackroundincrease+"!</p>")
+    myattack += attackroundincrease
     $("p.myhero").text(myhp)
     $("p.currentenemy").text(currentenemyhp)
     console.log(currentenemyhp)
@@ -107,6 +121,8 @@ $(".clicker").on("click", function(){
       $("div"+currenttarget.order).remove()
       currentenemyattack = 0
       defeatedenemies.push(currenttarget)
+      currenttarget.deathsound.play()
+      $(".textcard").prepend("<p>You have defeated "+currenttarget.name+"!</p>")
       currenttarget = ""
     }
     if (myhp <= 0){
@@ -116,6 +132,7 @@ $(".clicker").on("click", function(){
       $("body").prepend(loser)
       attack = false
       console.log("loser")
+      $(".textcard").prepend("<p>You have been defeated!</p>")
     }
     if (defeatedenemies.length == enemyheroes.length && myhp > 0) {
       var winner = $("<div>")
