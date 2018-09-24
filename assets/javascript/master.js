@@ -1,33 +1,33 @@
 $(document).ready(function(){
 var axe = {
   name:"Axe",
-  hitpoints:520,
-  attackpower:25,
-  counter:45,
+  hitpoints:580,
+  attackpower:60,
+  counter:35,
   order: ".one",
   image: "./assets/images/axebackground.jpg"
 }
 var razor = {
   name:"Razor",
-  hitpoints:420,
-  attackpower:30,
-  counter:60,
+  hitpoints:410,
+  attackpower:70,
+  counter:99,
   order:".two",
   image: "./assets/images/razorbackground.jpg"
 }
 var wraithking = {
   name:"Wraith King",
   hitpoints:580,
-  attackpower:25,
-  counter:73,
+  attackpower:55,
+  counter:35,
   order:".three",
   image: "./assets/images/wraithkingbackground.jpg"
 }
 var invoker = {
   name:"Invoker",
   hitpoints:520,
-  attackpower:25,
-  counter:59,
+  attackpower:70,
+  counter:80,
   order:".four",
   image: "./assets/images/invokerbackground.jpg"
 }
@@ -95,25 +95,33 @@ $(".clicker").on("click", function(){
 
   })
   $(".attackbutton").on("click",function(){
-    if (attack == true){
+    if (attack == true && currenttarget != ""){
     myhp -= currentenemyattack
     currentenemyhp -= myattack
-    myattack += 30
+    myattack += 40
     $("p.myhero").text(myhp)
     $("p.currentenemy").text(currentenemyhp)
     console.log(currentenemyhp)
-    if (currentenemyhp <= 0){
+    if (currentenemyhp <= 0 && currenttarget != ""){
       firstexecuteone = false
       $("div"+currenttarget.order).remove()
       currentenemyattack = 0
       defeatedenemies.push(currenttarget)
+      currenttarget = ""
     }
     if (myhp <= 0){
-      var loser = document.createElement("div")
+      var loser = $("<div>")
+      loser.text("You have lost!")
       loser.addClass("loser")
-      loser.textContent("<h1>You have lost!!!!</h1>")
+      $("body").prepend(loser)
       attack = false
       console.log("loser")
+    }
+    if (defeatedenemies.length == enemyheroes.length && myhp > 0) {
+      var winner = $("<div>")
+      winner.text("You have won!")
+      winner.addClass("winner")
+      $("body").prepend(winner)
     }
     else{
       return 0

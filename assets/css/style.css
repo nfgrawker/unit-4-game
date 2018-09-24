@@ -38,8 +38,27 @@ body{
 .attacksection{
   border-bottom: 5px solid red;
 }
-.loss{
+.loser{
+  top: 40%;
+  width: 90%;
   position: fixed;
-  font-size: 50px;
-  color: 50px;
+  left: 25%;
+  font-size: 150px;
+  color: red;
+  animation: blinker 1s linear infinite;
+
+}
+.winner{
+top: 40%;
+width: 90%;
+position: fixed;
+left: 25%;
+font-size: 150px;
+color: green;
+animation: blinker 1s linear infinite;
+}
+@keyframes blinker {
+50% {
+  opacity: 0;
+}
 }
