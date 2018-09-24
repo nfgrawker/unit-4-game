@@ -35,6 +35,7 @@ var invoker = {
 var heroes = [axe, razor, wraithking, invoker]
 var userhero = ""
 var enemyheroes = []
+var defeatedenemies = []
 var firstexecute = false
 var firstexecuteone = false
 var currenttarget = ""
@@ -103,6 +104,10 @@ $(".clicker").on("click", function(){
       firstexecuteone = false
       $("div"+currenttarget.order).remove()
       currentenemyattack = 0
+      defeatedenemies.push(currenttarget)
+    }
+    if (myhp <= 0){
+
     }
 
   })
