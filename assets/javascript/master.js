@@ -69,6 +69,7 @@ $(".clicker").on("click", function(){
         myhp = userhero.hitpoints
         myattack = userhero.attackpower
         $("body").css("background-image", "url("+userhero.image+")");
+        $("h2.mychar").text("Your Hero!")
       }
       else{
         enemyheroes.push(heroes[i])
@@ -92,6 +93,7 @@ $(".clicker").on("click", function(){
           if (current == (enemyheroes[i]).name){
           currenttarget = enemyheroes[i]
           currenttarget.picksound.play()
+          $(".textcard").empty()
           $("div"+(enemyheroes[i]).order).prependTo(".current")
           $("div"+(enemyheroes[i]).order).addClass("currentenemy")
           $("p"+(enemyheroes[i]).order).addClass("currentenemy")

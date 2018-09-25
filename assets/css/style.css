@@ -56,7 +56,7 @@ body{
   position: fixed;
   left: 25%;
   font-size: 150px;
-  color: #61616194;
+  color: red;
   animation: blinker 1s linear infinite;
 
 }
