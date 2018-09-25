@@ -91,6 +91,7 @@ $(".clicker").on("click", function(){
         for (i in enemyheroes){
           if (current == (enemyheroes[i]).name){
           currenttarget = enemyheroes[i]
+          currenttarget.picksound.play()
           $("div"+(enemyheroes[i]).order).prependTo(".current")
           $("div"+(enemyheroes[i]).order).addClass("currentenemy")
           $("p"+(enemyheroes[i]).order).addClass("currentenemy")
@@ -122,7 +123,7 @@ $(".clicker").on("click", function(){
       currentenemyattack = 0
       defeatedenemies.push(currenttarget)
       currenttarget.deathsound.play()
-      $(".textcard").prepend("<p>You have defeated "+currenttarget.name+"!</p>")
+      $(".textcard").prepend("<p class = 'flash'><strong>You have defeated "+currenttarget.name+"!</strong></p>")
       currenttarget = ""
     }
     if (myhp <= 0){
